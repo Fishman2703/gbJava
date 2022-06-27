@@ -7,15 +7,15 @@ public class Merge {
         if (arrayA == null) return null; 
         if (arrayA.length < 2) return arrayA;
     
-        int [] arrayB = new int [arrayA.length / 2];
-        System.arraycopy(arrayA, 0, arrayB, 0, arrayA.length / 2);
-        int [] arrayC = new int [arrayA.length / 2];
-        System.arraycopy(arrayA, arrayA.length / 2, arrayC, 0, arrayA.length - arrayA.length / 2);
+        int [] leftSize = new int [arrayA.length / 2];
+        System.arraycopy(arrayA, 0, leftSize, 0, arrayA.length / 2);
+        int [] rightSize = new int [arrayA.length - arrayA.length / 2];
+        System.arraycopy(arrayA, arrayA.length / 2, rightSize, 0, arrayA.length - arrayA.length / 2);
     
-        arrayB = sortArray(arrayB);
-        arrayC = sortArray(arrayC);
+        leftSize = sortArray(leftSize);
+        rightSize = sortArray(rightSize);
     
-        return mergeArray(arrayB, arrayC);
+        return mergeArray(leftSize, rightSize);
         
     }
 
