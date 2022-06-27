@@ -22,22 +22,22 @@ public class Merge {
     public int [] mergeArray(int [] arrayA, int [] arrayB) {
 
         int [] arrayC = new int[arrayA.length + arrayB.length];
-        int positionA = 0;
-        int positionB = 0;
+        int leftIndex = 0;
+        int rightIndex = 0;
 
         for (int i = 0; i < arrayC.length; i++) {
-            if (positionA == arrayA.length){
-                arrayC[i] = arrayB[positionB];
-                positionB++;
-            } else if (positionB == arrayB.length) {
-                arrayC[i] = arrayA[positionA];
-                positionA++;
-            } else if (arrayA[positionA] < arrayB[positionB]) {
-                arrayC[i] = arrayA[positionA];
-                positionA++;
+            if (leftIndex == arrayA.length){
+                arrayC[i] = arrayB[rightIndex];
+                rightIndex++;
+            } else if (rightIndex == arrayB.length) {
+                arrayC[i] = arrayA[leftIndex];
+                leftIndex++;
+            } else if (arrayA[leftIndex] < arrayB[rightIndex]) {
+                arrayC[i] = arrayA[leftIndex];
+                leftIndex++;
             } else {
-                arrayC[i] = arrayB[positionB];
-                positionB++;
+                arrayC[i] = arrayB[rightIndex];
+                rightIndex++;
             }
         }
         return arrayC;
